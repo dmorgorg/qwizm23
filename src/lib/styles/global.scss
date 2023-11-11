@@ -1,0 +1,141 @@
+// :root {
+//   --fluids-primary: #088;
+//   --fluids-dark: #066;
+//   --fluids-mid: #0aa;
+//   --fluids-hover: #0bb;
+//   --fluids-light: #c9e9e9;
+//   --fluids-white: #edefef;
+// }
+
+$BOX_SHADOW: 0.125em 0.125em 0.375em 0.05em rgba(128, 128, 128, 0.25);
+
+$FLUIDS_DARK: #066;
+$FLUIDS_PRIMARY: #088;
+$FLUIDS_MID: #0aa;
+$FLUIDS_HOVER: #0bb;
+$FLUIDS_LIGHT: #c9e9e9;
+$FLUIDS_WHITE: #edefef;
+
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+
+html {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 2.5vw;
+  font-weight: 400;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+// full browser window
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-start;
+  overflow-y: hidden;
+}
+
+header {
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0.125em 0.375em 0.05em rgba(128, 128, 128, 1);
+  display: flex;
+  font-family: "Shadows Into Light", cursive;
+  font-weight: bold;
+  justify-content: space-between;
+  letter-spacing: 0.15rem;
+  overflow-y: hidden;
+  padding: 0.25em 1rem;
+  text-shadow: 0.05rem 0.05rem 0.1rem rgba(0, 0, 0, 1);
+  word-spacing: -0.35rem;
+  z-index: 1000;
+  margin-bottom: 0.5em;
+
+  .left {
+    font-size: 1.5em;
+  }
+  .right {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1em;
+    justify-content: space-between;
+    line-height: 1.3;
+    padding: 0.0625rem 0;
+
+    div {
+      padding: 0.0625em;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+// everything below the header
+.outer {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 1em;
+}
+
+.fluids {
+  color: $FLUIDS_MID;
+
+  &.container {
+    background-color: $FLUIDS_WHITE;
+
+    .outer {
+      background-color: $FLUIDS_WHITE;
+    }
+
+    header {
+      color: $FLUIDS_MID;
+
+      box-shadow: $BOX_SHADOW;
+    }
+
+    .login .card {
+      h2 {
+        color: $FLUIDS_MID;
+      }
+      input {
+        outline: 0.05em solid $FLUIDS_MID;
+
+        &:focus,
+        &:hover {
+          outline: 0.1em solid $FLUIDS_MID;
+        }
+      }
+      button {
+        border: 0.05em solid $FLUIDS_MID;
+        color: $FLUIDS_MID;
+
+        &:hover {
+          outline: 0.1em solid $FLUIDS_MID;
+        }
+      }
+    }
+  }
+}
