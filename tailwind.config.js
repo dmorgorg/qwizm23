@@ -1,15 +1,18 @@
-import { join } from 'path'
+import { join } from 'path';
 
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import { skeleton } from '@skeletonlabs/tw-plugin';
-import { qwizmSkeletonTheme } from './src/qwizmSkeletonTheme'
+import { qwizmSkeletonTheme } from './src/qwizmSkeletonTheme';
 /** @type {import('tailwindcss').Config} */
 export default {
 	darkMode: 'class',
-	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+	],
 	theme: {
-		extend: {},
+		extend: {}
 	},
 	plugins: [
 		forms,
@@ -19,17 +22,15 @@ export default {
 				preset: [
 					{
 						name: 'skeleton',
-						enhancements: true,
+						enhancements: true
 					},
 					{
 						name: 'hamlindigo',
-						enhancements: true,
-					},
+						enhancements: true
+					}
 				],
-				custom: [
-					qwizmSkeletonTheme,
-				],
-			},
-		}),
-	],
+				custom: [qwizmSkeletonTheme]
+			}
+		})
+	]
 };

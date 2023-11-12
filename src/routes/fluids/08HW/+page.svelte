@@ -1,21 +1,23 @@
 <script lang="ts">
+	import { localStorageStore } from '@skeletonlabs/skeleton';
+	import { get, type Writable } from 'svelte/store';
 	import quiz from './quiz';
 	import Header from '$lib/components/Header.svelte';
 	import Login from '$lib/components/Login.svelte';
 	import Question from '$lib/components/Question.svelte';
 	import q01 from '$lib/questions/fluids/08HW/q01';
 	import q02 from '$lib/questions/fluids/08HW/q02';
-	//   import { readFromLocalStorage, writeToLocalStorage } from "$lib/utils/utils"
+
+	const quizStore: Writable<string> = localStorageStore(quiz.quizId, '42');
 </script>
 
-<div class="container {quiz.theme}">
+<div class="outer {quiz.theme}">
 	<Header {quiz} />
 
-	<div class="outer">
-		<!-- {#if readFromLocalStorage(quiz.quizId) === null} -->
+	{get(quizStore)}
+
+	<main>
+		<!-- {#if !readFromLocalStorage(quiz.quizId)} -->
 		<Login {quiz} />
-		<!-- {/if} -->
-		<!-- <Question question={q01} />
-      <Question question={q02} /> -->
-	</div>
+	</main>
 </div>
